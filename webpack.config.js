@@ -85,3 +85,6 @@ module.exports = {
     ],
   },
 };
+console.log(
+  `🔥React is running on http://localhost:${process.env.REACT_APP_PORT || 3000}`
+);
