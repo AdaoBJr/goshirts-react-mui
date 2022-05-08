@@ -1,35 +1,31 @@
-import { Grid, Box, TextField } from '@mui/material';
+import { Grid, TextField, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const GridContainer = styled(Grid, {
   name: 'CreateAccount',
   slot: 'container'
 })(({ theme }) => ({
+  display: 'grid',
   justifyContent: 'center',
-  alignItems: 'center',
-  padding: '1rem',
-  maxWidth: theme.breakpoints.values.lg
+  alignItems: 'start',
+  marginTop: '1rem',
+  width: '100vw',
+  height: '100vh'
+}));
+
+export const PaperWrapper = styled(Paper, {
+  name: 'Input',
+  slot: 'wrapper'
+})(({ theme }) => ({
+  padding: '1rem 1.5rem 2rem 1.5rem',
+  maxWidth: '400px'
 }));
 
 export const FormContainer = styled('form', {
   name: 'CreateAccount',
   slot: 'form'
 })(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '1.25rem'
-}));
-
-export const BoxWrapper = styled(Box, {
-  name: 'Input',
-  slot: 'wrapper'
-})(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  gap: '1.25rem'
+  display: 'grid'
 }));
 
 export const InputText = styled(TextField, {
@@ -37,19 +33,17 @@ export const InputText = styled(TextField, {
   slot: 'text_item'
 })(({ theme }) => {
   const {
-    palette: { background }
+    palette: { background, secondary }
   } = theme;
 
   return {
     fontSize: 16,
     textAlign: 'center',
-    width: 60,
-    height: 50,
-    borderRadius: 4,
+    height: '40px',
+    padding: 0,
     backgroundColor: background.paper,
-    '& .MuiInputBase-input': {
-      fontSize: '1rem',
-      textAlign: 'center'
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: secondary.main
     }
   };
 });
